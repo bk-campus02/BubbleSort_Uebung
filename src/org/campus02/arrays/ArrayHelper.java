@@ -7,7 +7,7 @@ public class ArrayHelper {
     public static void main(String[] args) {
         // int[] arr = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 
-        Car[] arr= {
+        Sortable[] arr= {
                 new Car(2024, "PKW", 12999),
                 new Car(2023, "Truck", 20000),
                 new Car(2022, "PKW", 35000),
@@ -24,13 +24,13 @@ public class ArrayHelper {
 
     }
 
-    public static void arrangeOrder(Car[] numbers) {
+    public static void arrangeOrder(Sortable[] numbers) {
 
         for (int j = 0; j < numbers.length; j++) {
             boolean swapped = false;
             for (int i = 0; i < numbers.length - 1 - j; i++) {
-                if (numbers[i].getProductionYear() > numbers[i + 1].getProductionYear()) {
-                    Car temp = numbers[i];
+                if (numbers[i].sort(numbers[i + 1]) > 0) {
+                    Sortable temp = numbers[i];
                     numbers[i] = numbers[i + 1];
                     numbers[i + 1] = temp;
                     swapped = true;

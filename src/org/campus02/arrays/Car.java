@@ -1,6 +1,6 @@
 package org.campus02.arrays;
 
-public class Car {
+public class Car implements Sortable<Car>{
     private int productionYear;
     private String carType;
     private int drivenKilometer;
@@ -42,5 +42,18 @@ public class Car {
                 ", carType='" + carType + '\'' +
                 ", drivenKilometer=" + drivenKilometer +
                 '}';
+    }
+
+    @Override
+    public int sort(Car s) {
+        if (this.getDrivenKilometer() == s.getDrivenKilometer()) {
+            return 0;
+        }
+        if (this.getDrivenKilometer() < s.getDrivenKilometer()) {
+            return -1;
+        }
+        else {
+            return 1;
+        }
     }
 }
